@@ -26,26 +26,44 @@ View(housesales)
 
 housesales %>%
   filter(year == 2015)
+# First, I called the housesales data set and used the pipe operator from tidyverse to
+# select observations matching the correct year. Instead of =, which is an assignment operator,
+# I used ==, as this is a comparison operator. 
 
 
 
 # 2) Similar to the above question, filter results from 2010 onward, so 2010-2015.
 
-
+housesales %>%
+  filter(year >= 2010)
+# Similar to the question above, I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Instead of using ==, which would only filter observations within
+# the year 2010, I used >= to filter observations from years greater than or equal to 2010. 
 
 
 
 # 3) The "city" column contains the relevant city. Filter to return only results for Houston
 # (note, remember R is case sensitive)
 
-
+housesales %>%
+  filter(city == "Houston")
+# I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Because I called a character, not a number, I had to use
+# quotation marks to specify the city. I also had to use the proper case (uppercase)
+# as in the data set, since R is case sensitive. If I'd done "houston", the call
+# wouldn't have worked. 
 
 
 
 # 4) Filter for only where the city is Houston as above, and now also filter for only 
 # the year 2010. The results should give you 12 records, one for each month in 2010 for Houston.
 
-
+housesales %>%
+  filter(city == "Houston",
+         year == 2010)
+# I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Since I had to filter by date and year, I inserted two 
+# commands into the filter function to return only observations from 2010 in Houston, TX.
 
 
 
@@ -53,7 +71,15 @@ housesales %>%
 # and the year is 2010. Now add a sort using arrange() to sort the results based on the number
 # of home sales (the "sales" column) from most to least.
 
-
+housesales %>%
+  filter(city == "Houston",
+         year == 2010) %>%
+  arrange(desc(sales))
+# As with the previous question, I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Since I had to filter by date and year, I inserted two 
+# commands into the filter function to return only observations from 2010 in Houston, TX.
+# I then used arrange(desc()) to sort the sales variable in descending order so the
+# most sales come first and decrease in order. 
 
 
 
