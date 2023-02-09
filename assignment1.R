@@ -86,8 +86,15 @@ housesales %>%
 # 6) Piggyback on what you've done above. 
 # Do the same as #5, only this time instead of Houston return records for Dallas
 
-
-
+housesales %>%
+  filter(city == "Dallas",
+         year == 2010) %>%
+  arrange(desc(sales))
+# As with the question above, I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Since I had to filter by date and year, I inserted two 
+# commands into the filter function to return only observations from 2010 in Dallas, TX.
+# I then used arrange(desc()) to sort the sales variable in descending order so the
+# most sales come first and decrease in order. 
 
 
 # 7) Sometimes metrics like home sales have a seasonal quality to them, much like 
@@ -99,25 +106,58 @@ housesales %>%
 #
 # Filter for the city is Dallas, and the month is June (the number 6). 
 
-
+housesales %>%
+  filter(city == "Dallas",
+         month == 6)
+# As with the previous question, I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Since I had to filter by city and month, I inserted two 
+# commands into the filter function to return only observations from June in Dallas, TX.
 
 
 
 # 8) Build on what we've done above. Now that we have June numbers for Dallas for every year,
 # arrange the results by sales from highest-to-lowest to show what year had the highest June sales.
 
+housesales %>%
+  filter(city == "Dallas",
+         month == 6) %>%
+  arrange(desc(sales))
 
-
+# I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Since I had to filter by city and month, I inserted two 
+# commands into the filter function to return only observations from June in Dallas, TX.
+# I then used arrange(desc()) to sort the sales variable in descending order so the
+# most sales come first and decrease in order. This shows that 2006 had the highest
+# sales at 7,117
 
 
 
 # 9) Now do the same as Question 8, but this time instead of Dallas, show results for Corpus Christi
 
-
-
+housesales %>%
+  filter(city == "Corpus Christi",
+         month == 6) %>%
+  arrange(desc(sales))
+# I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Since I had to filter by city and month, I inserted two 
+# commands into the filter function to return only observations from June in Corpus Christi, TX.
+# I then used arrange(desc()) to sort the sales variable in descending order so the
+# most sales come first and decrease in order. This shows that, like Houston, 2006 had the highest
+# sales but at a lower figure 565 sales. 
 
 
 
 # 10) Finally, using the Corpus Christi code from Question 9, instead of June
 # use the month of February (2) instead.
+
+housesales %>%
+  filter(city == "Corpus Christi",
+         month == 2) %>%
+  arrange(desc(sales))
+# I called the housesales data set and used the pipe operator from tidyverse to
+# select observations. Since I had to filter by city and month, I inserted two 
+# commands into the filter function to return only observations from June in Corpus Christi, TX.
+# I then used arrange(desc()) to sort the sales variable in descending order so the
+# most sales come first and decrease in order. This shows that, like Houston, 2006 had the highest
+# sales but at a lower figure 565 sales. 
 
